@@ -124,7 +124,7 @@ def main(args):
             print(f"Loaded best model from {best_model_path}")
         else:
             raise ValueError("Best model file not found at {}".format(best_model_path))
-            solver.train_epoch(model, val_loader,1,3)
+        solver.train(model, train_loader, val_loader, exp_id + 1, num_epochs=args.epochs)
 
 
 if __name__ == '__main__':
