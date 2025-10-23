@@ -115,15 +115,6 @@ def main(args):
         print("Test batch number: %i" % len(val_loader))
         model = DconnNet(num_class=args.num_class).cuda()  # 实例化模型
         solver = Solver(args)
-        best_model_path = os.path.join("/home/ubuntu/Experiment/liyachao/DconnNet/DconnNet-mainT", 'MGMS2017.pth')
-        # if args.pretrained:
-        if os.path.isfile(best_model_path):
-            # model.load_state_dict(torch.load(args.pretrained,map_location = torch.device('cpu')))
-            # model = model.cuda()
-            model.load_state_dict(torch.load(best_model_path, map_location=torch.device('cuda')))
-            print(f"Loaded best model from {best_model_path}")
-        else:
-            raise ValueError("Best model file not found at {}".format(best_model_path))
         solver.train(model, train_loader, val_loader, exp_id + 1, num_epochs=args.epochs)
 
 
