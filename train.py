@@ -57,8 +57,6 @@ def parse_args():
     # checkpoint and log
     parser.add_argument('--pretrained', type=str, default=None,
                         help='put the path to resuming file if needed')
-    # parser.add_argument('--weights', type=str, default='/home/ziyun/Desktop/project/BiconNet_codes/DconnNet/general/data_loader/retouch_weights/',
-    #                     help='path of SDL weights')
     parser.add_argument('--save', default='save',
                         help='Directory for saving checkpoint models')
 
@@ -66,7 +64,7 @@ def parse_args():
                         help='per epochs to save')
 
     # evaluation only
-    parser.add_argument('--test_only', action='store_true', default=True,
+    parser.add_argument('--test_only', action='store_true', default=False,
                         help='test only, please load the pretrained model')
     args = parser.parse_args()
     if not os.path.isdir(args.save):
@@ -126,8 +124,7 @@ def main(args):
             print(f"Loaded best model from {best_model_path}")
         else:
             raise ValueError("Best model file not found at {}".format(best_model_path))
-        if args.test_only:
-            solver.test_epoch(model, val_loader,1,3)
+            solver.train_epoch(model, val_loader,1,3)
 
 
 if __name__ == '__main__':
