@@ -14,3 +14,6 @@ The ISIC2018, ISIC2017,ISIC2016,ph2 and CVC-ClinicDB datasets can be downloaded 
 # Requirements
 <h4>Python 3.10</h4>
 <h4>PyTorch 2.1.2+cuda121</h4>
+
+#Training
+python train.py
