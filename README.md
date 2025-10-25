@@ -10,3 +10,6 @@ The ISIC2018, ISIC2017,ISIC2016,ph2 and CVC-ClinicDB datasets can be downloaded 
 <h4>https://challenge.isic-archive.com/data/#2016</h4>
 <h4>https://www.fc.up.pt/addi/ph2%20database.html</h4>
 <h4>https://tianchi.aliyun.com/dataset/93690</h4>
+# Requirements
+Python 3.10
+PyTorch 2.1.2+cuda121
